@@ -1,76 +1,76 @@
 {
-    "listeners": {
-        "*:80": { "pass": "routes" },
-        "*:443": { "tls": { "certificate": "bundle" }, "pass": "routes" }
+  "listeners": {
+    "*:80": { "pass": "routes" },
+    "*:443": { "tls": { "certificate": "bundle" }, "pass": "routes" }
+  },
+  "routes": [
+    {
+      "match": {
+        "uri": [
+          "!/tests/qunit/*",
+          "/cache/*",
+          "/includes/*",
+          "/languages/*",
+          "/maintenance/*",
+          "/tests/*",
+          "/vendor/*",
+          "/mw-config/*"
+        ]
+      },
+      "action": { "return": 403 }
     },
-    "routes": [
-        {
-            "match": {
-                "uri": [
-                    "!/tests/qunit/*",
-                    "/cache/*",
-                    "/includes/*",
-                    "/languages/*",
-                    "/maintenance/*",
-                    "/tests/*",
-                    "/vendor/*",
-                    "/mw-config/*"
-                ]
-            },
-            "action": { "return": 403 }
-        },
-        {
-            "match": {
-                "uri": [
-                    "/api.php*",
-                    "/img_auth.php*",
-                    "/index.php*",
-                    "/load.php*",
-                    "/mw-config/*.php",
-                    "/opensearch_desc.php*",
-                    "/profileinfo.php*",
-                    "/rest.php*",
-                    "/tests/qunit/*.php",
-                    "/thumb.php*",
-                    "/thumb_handler.php*"
-                ]
-            },
-            "action": { "pass": "applications/mw/direct" }
-        },
-        {
-            "match": {
-                "uri": [
-                    "!*.php",
-                    "!*.json",
-                    "!*.htaccess",
-                    "/sitemap/*",
-                    "/.well-known/*",
-                    "/skins/*",
-                    "/extensions/*",
-                    "/images/*",
-                    "/resources/assets/*",
-                    "/resources/lib/*",
-                    "/resources/src/*",
-                    "/robots.txt"
-                ]
-            },
-            "action": {
-                "share": "/var/www/mediawiki$uri"
-            }
-        },
-        { "action": { "pass": "applications/mw/index" } }
-    ],
-    "applications": {
-        "mw": {
-            "type": "php",
-            "targets": {
-                "direct": { "root": "/var/www/mediawiki" },
-                "index": { "root": "/var/www/mediawiki", "script": "index.php" }
-            },
-	    "options":{
-	    "file":"20-mw-seekstar.ini"
-	    },
-            "processes": { "max": 2, "spare": 1, "idle_timeout": 50 }
-        }
+    {
+      "match": {
+        "uri": [
+          "/api.php*",
+          "/img_auth.php*",
+          "/index.php*",
+          "/load.php*",
+          "/mw-config/*.php",
+          "/opensearch_desc.php*",
+          "/profileinfo.php*",
+          "/rest.php*",
+          "/tests/qunit/*.php",
+          "/thumb.php*",
+          "/thumb_handler.php*"
+        ]
+      },
+      "action": { "pass": "applications/mw/direct" }
+    },
+    {
+      "match": {
+        "uri": [
+          "!*.php",
+          "!*.json",
+          "!*.htaccess",
+          "/sitemap/*",
+          "/.well-known/*",
+          "/skins/*",
+          "/extensions/*",
+          "/images/*",
+          "/resources/assets/*",
+          "/resources/lib/*",
+          "/resources/src/*",
+          "/robots.txt"
+        ]
+      },
+      "action": {
+        "share": "/var/www/mediawiki$uri"
+      }
+    },
+    { "action": { "pass": "applications/mw/index" } }
+  ],
+  "applications": {
+    "mw": {
+      "type": "php",
+      "targets": {
+        "direct": { "root": "/var/www/mediawiki" },
+        "index": { "root": "/var/www/mediawiki", "script": "index.php" }
+      },
+      "options": {
+        "file": "20-mw-seekstar.ini"
+      },
+      "processes": { "max": 2, "spare": 1, "idle_timeout": 50 }
     }
+  }
 }
