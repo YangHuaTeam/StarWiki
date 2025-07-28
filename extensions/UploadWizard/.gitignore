@@ -1,0 +1,12 @@
+.svn
+*~
+*.kate-swp
+.*.swp
+docs/
+*.pyc
+node_modules
+.tox
+vendor
+composer.lock
+.DS_Store
+.eslintcache

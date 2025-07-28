@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"apihelp-flickrblacklist-summary": "{{doc-apihelp-summary|flickrblacklist}}",
+	"apihelp-flickrblacklist-extended-description": "{{doc-apihelp-extended-description|flickrblacklist}}",
+	"apihelp-flickrblacklist-param-url": "{{doc-apihelp-param|flickrblacklist|url}}",
+	"apihelp-flickrblacklist-param-list": "{{doc-apihelp-param|flickrblacklist|list}}",
+	"apihelp-flickrblacklist-example-1": "{{doc-apihelp-example|flickrblacklist}}",
+	"apihelp-flickrblacklist-example-2": "{{doc-apihelp-example|flickrblacklist}}",
+	"apihelp-query+allcampaigns-summary": "{{doc-apihelp-summary|query+allcampaigns}}",
+	"apihelp-query+allcampaigns-param-enabledonly": "{{doc-apihelp-param|query+allcampaigns|enabledonly}}",
+	"apihelp-query+allcampaigns-param-limit": "{{doc-apihelp-param|query+allcampaigns|limit}}",
+	"apihelp-query+allcampaigns-example-1": "{{doc-apihelp-example|query+allcampaigns}}",
+	"apihelp-mediadetection-summary": "{{doc-apihelp-summary|mediadetection}}",
+	"apihelp-mediadetection-param-filename": "{{doc-apihelp-param|mediadetection|filename}}",
+	"apihelp-mediadetection-param-filekey": "{{doc-apihelp-param|mediadetection|filekey}}",
+	"apihelp-mediadetection-example-filename": "{{doc-apihelp-example-filename|mediadetection}}",
+	"apihelp-mediadetection-example-filekey": "{{doc-apihelp-example-filekey|mediadetection}}",
+	"apierror-mediadetection-no-valid-thumbnail": "Error msg for when detection fails because the image has no valid thumbnail",
+	"apierror-mediadetection-invalid-mime-type": "Error msg for when detection fails because the upload file is the wrong mime type - allowed types are image/jpeg, image/gif, image/png, image/bmp"
+}

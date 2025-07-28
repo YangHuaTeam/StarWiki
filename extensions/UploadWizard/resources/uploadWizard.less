@@ -1,0 +1,225 @@
+@import 'mediawiki.skin.variables.less';
+
+form.mwe-upwiz-form {
+	display: inline;
+}
+
+#mwe-upwiz-steps {
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	line-height: 2.5;
+	background-color: @background-color-base;
+	border: 0;
+
+	// shrink steps indicator down on mobile to try to fit all steps on one
+	// line, by slightly reducing the arrow size, paddings & font size;
+	// if the screen is too narrow to even display this, it'll simply wrap
+	// to a 2nd line - can't make things infinitely smaller :)
+	@media screen and ( max-width: @min-width-breakpoint-tablet ) {
+		gap: 3px 0;
+		font-size: 0.75em;
+
+		li {
+			height: 30px;
+		}
+
+		li.head {
+			font-weight: @font-weight-normal;
+		}
+
+		li.arrow::after {
+			border-width: 15px;
+			margin-top: -15px;
+		}
+
+		li.arrow::before {
+			border-width: 18px;
+			margin-top: -18px;
+		}
+
+		li:not( :first-child ):not( :last-child ) div {
+			padding-left: 21px;
+			padding-right: 0;
+		}
+
+		li:first-child div {
+			padding-left: 3px;
+		}
+
+		li:last-child div {
+			padding-left: 21px;
+			padding-right: 3px;
+		}
+	}
+}
+
+.mwe-upwiz-clearing {
+	clear: left;
+	width: 100%;
+}
+
+#mwe-upwiz-content {
+	margin-top: 1em;
+}
+
+#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice {
+	display: none;
+}
+
+.mwe-upwiz-progress {
+	margin-top: 15px;
+}
+
+.mwe-upwiz-progress-bar-etr {
+	float: left;
+}
+
+.mwe-upwiz-etr {
+	text-align: center;
+}
+
+.mwe-upwiz-thumbnail {
+	background-color: @background-color-base;
+	text-align: center;
+}
+
+.mwe-upwiz-thumbnail-link {
+	display: block;
+	margin: 0 auto;
+
+	canvas,
+	img {
+		box-shadow: @box-shadow-drop-medium;
+	}
+}
+
+.mwe-upwiz-remove-upload {
+	margin-left: -0.5em;
+	margin-top: 0.5em;
+}
+
+.mwe-upwiz-stepdiv {
+	position: relative;
+}
+
+.mwe-small-print {
+	font-size: x-small;
+}
+
+.mwe-upwiz-custom-deed {
+	margin-top: 5px;
+}
+
+.mwe-upwiz-buttons {
+	margin-top: 1em;
+	text-align: right;
+}
+
+.mwe-upwiz-button-previous {
+	float: left;
+}
+
+a.mwe-upwiz-tooltip-link {
+	cursor: pointer;
+}
+
+.mwe-upwiz-thanks {
+	margin-bottom: 2em;
+}
+
+.mwe-readonly {
+	background-color: @color-disabled;
+	padding: 0.25em;
+}
+
+.mwe-more-details .mw-collapsible-content {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.ui-corner-top {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.ui-corner-bottom {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+.ui-corner-all {
+	border-radius: 2px;
+}
+
+.mwe-upwiz-details-texts {
+	padding: 0.5em;
+}
+
+.mwe-upwiz-objref-pick-image {
+	font-weight: @font-weight-bold;
+}
+
+.mwe-upwiz-objref-pick-image input:disabled + label {
+	color: @color-disabled;
+	font-weight: @font-weight-normal;
+}
+
+.mwe-upwiz-objref-notice-existing-image {
+	font-weight: @font-weight-bold;
+}
+
+.mwe-upwiz-sign {
+	max-width: 20em;
+	display: inline-block;
+	margin-right: 0;
+	vertical-align: baseline;
+}
+
+.ui-helper-clearfix {
+	&::before,
+	&::after {
+		content: '';
+		display: table;
+		border-collapse: collapse;
+	}
+}
+
+.ui-helper-clearfix::after {
+	clear: both;
+}
+
+.mwe-upwiz-metadata-notice {
+	margin-top: 2em;
+}
+
+.mwe-upwiz-license-metadata {
+	margin-top: 3em;
+	padding: 1em 1em 1em ~'calc( 64px + 2.5em )';
+	border: @border-width-base @border-style-base @border-color-subtle;
+	white-space: pre-wrap;
+	/* @embed */
+	background: url( images/cc.svg ) no-repeat 1em 1em, url( images/zero.svg ) no-repeat ~'calc( 1.5em + 32px )' 1em;
+	background-size: 32px 32px;
+	background-color: @background-color-neutral-subtle;
+
+	@media screen and ( max-width: @min-width-breakpoint-tablet ) {
+		margin-top: 1em;
+		padding: 0.5em;
+		background: none;
+		background-color: @background-color-neutral-subtle;
+	}
+}
+
+#mwe-upwiz-details-error-count {
+	text-align: initial;
+	display: flex;
+	justify-content: end;
+	padding: 1em 0;
+}
+
+// wrap buttons to prevent ones with really long text (as is often the
+// case in e.g. German) to run off-screen
+#mwe-upwiz-content .oo-ui-buttonElement-button {
+	white-space: normal;
+}

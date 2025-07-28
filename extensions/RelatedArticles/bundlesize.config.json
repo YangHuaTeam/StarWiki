@@ -1,0 +1,14 @@
+[
+	{
+		"resourceModule": "ext.relatedArticles.styles",
+		"maxSize": "0.3 kB"
+	},
+	{
+		"resourceModule": "ext.relatedArticles.readMore.bootstrap",
+		"maxSize": "0.5 kB"
+	},
+	{
+		"resourceModule": "ext.relatedArticles.readMore",
+		"maxSize": "3.4 kB"
+	}
+]

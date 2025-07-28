@@ -1,0 +1,7 @@
+# https://www.mediawiki.org/wiki/Manual:Robots.txt/zh
+User-agent: *
+Disallow: /*&
+
+# Allow the Internet Archiver to index action=raw and thereby store the raw wikitext of pages
+User-agent: ia_archiver
+Allow: /*&action=raw

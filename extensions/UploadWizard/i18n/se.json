@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kimberli Mäkäräinen (WMNO)",
+			"Yupik"
+		]
+	},
+	"mwe-upwiz-remove": "Sihko",
+	"mwe-upwiz-patent-dialog-button-back": "Ruovttoluotta",
+	"mwe-upwiz-patent-dialog-button-next": "Čuovvovaš",
+	"mwe-upwiz-patent-dialog-link-warranty": "Lassedieđut",
+	"mwe-upwiz-patent-dialog-link-license": "Lassedieđut",
+	"mwe-upwiz-copy-categories-label": "Kategoriijat",
+	"mwe-upwiz-desc": "Govvádus",
+	"mwe-upwiz-location-button": "Čájet kárttas",
+	"mwe-upwiz-location-lat": "Govdodatgráda",
+	"mwe-upwiz-location-lon": "Guhkkodatgráda",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Dovdameahttun fiilanamma",
+	"mwe-upwiz-next": "Čuovvovaš",
+	"mwe-upwiz-next-file": "Joatkke",
+	"mwe-upwiz-next-deeds": "Čuovvovaš",
+	"mwe-upwiz-metadata-title": "Lasit metadata",
+	"mwe-upwiz-previous": "Ruovttoluotta",
+	"mwe-upwiz-tooltip-more-info": "Lassedieđut",
+	"mwe-upwiz-label-optional": "(eaktodáhtolaš)",
+	"mwe-upwiz-dialog-title": "Várrehus",
+	"mwe-upwiz-license-custom-preview": "Ovdačájáhus",
+	"mwe-upwiz-categories": "Kategoriija",
+	"mwe-upwiz-subhead-alternatives": "Eará vurkenvuogit",
+	"mwe-upwiz-feedback-prompt": "Atte máhcahaga",
+	"prefs-upwiz-interface": "Geavahanlakta",
+	"mwe-upload-campaigns-pagination-next": "Čuovvovaš siidu"
+}

@@ -1,0 +1,31 @@
+{
+	"opts": {
+		"destination": "docs",
+		"pedantic": true,
+		"readme": "README",
+		"recurse": true,
+		"template": "node_modules/jsdoc-wmf-theme"
+	},
+	"plugins": [
+		"node_modules/jsdoc-wmf-theme/plugins/default"
+	],
+	"source": {
+		"include": [ "resources" ]
+	},
+	"templates": {
+		"cleverLinks": true,
+		"default": {
+			"useLongnameInNav": true
+		},
+		"wmf": {
+			"repository": "https://gerrit.wikimedia.org/g/mediawiki/extensions/UploadWizard/",
+			"prefixMap": {
+				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html",
+				"mw.UploadWizard": true,
+				"mw.ApiUpload": true,
+				"mw.FlickrChecker": true
+			},
+			"linkMap": {}
+		}
+	}
+}

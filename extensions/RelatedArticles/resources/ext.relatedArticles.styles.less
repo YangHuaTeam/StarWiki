@@ -1,0 +1,14 @@
+@import 'mediawiki.skin.variables.less';
+
+// Reserve space for the related articles cards.
+// https://phabricator.wikimedia.org/T223844
+// Note this is optimized for 3 related articles which is the majority of cases.
+.client-js {
+	.read-more-container {
+		min-height: 320px;
+
+		@media ( min-width: @min-width-breakpoint-desktop ) {
+			min-height: 163px;
+		}
+	}
+}

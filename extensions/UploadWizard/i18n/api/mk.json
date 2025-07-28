@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"apihelp-flickrblacklist-summary": "Завери URL од Flickr користејќи ја корисничката назнака (NSID) за црн список.",
+	"apihelp-flickrblacklist-extended-description": "Кога се користи со можноста за список (<var>list</var>), ги дава сите назнаки на црниот список.",
+	"apihelp-flickrblacklist-param-url": "URL-адреса од Flickr што треба да се провери.",
+	"apihelp-flickrblacklist-param-list": "Кога е зададено, ќе се даде целиот црн список. Не може да се користи заедно со $1url.",
+	"apihelp-flickrblacklist-example-1": "Провери URL во црниот список",
+	"apihelp-flickrblacklist-example-2": "Дај го целиот црн список",
+	"apihelp-query+allcampaigns-summary": "Наброј ги сите походи на Помошникот за подигање.",
+	"apihelp-query+allcampaigns-param-enabledonly": "Испиши ги само походите кои се во тек.",
+	"apihelp-query+allcampaigns-param-limit": "Број на походи во исписот.",
+	"apihelp-query+allcampaigns-example-1": "Наброј ги тековните походи",
+	"apihelp-mediadetection-summary": "Дај ја веројатноста дека складираната слика претставена од укажаниот податотечен клуч е лого",
+	"apihelp-mediadetection-param-filename": "Име на податотечната страница",
+	"apihelp-mediadetection-param-filekey": "<var>filekey</var> добиен од барањето <kbd>stash</kbd> до приложникот",
+	"apihelp-mediadetection-example-filename": "Дај ја веројатноста дека сликата претставена од укажаното податотечно име е лого",
+	"apihelp-mediadetection-example-filekey": "Дај ја веројатноста дека складираната слика претставена од укажаниот податотечен клуч е лого",
+	"apierror-mediadetection-no-valid-thumbnail": "Не постои минијатура за сликата, па затоа не можам да ја испратам во класификаторот",
+	"apierror-mediadetection-invalid-mime-type": "Крајната точка на приложникот е недостапна за овој тип на податотека. Се допуштаат: image/jpeg, image/gif, image/png, image/bmp"
+}

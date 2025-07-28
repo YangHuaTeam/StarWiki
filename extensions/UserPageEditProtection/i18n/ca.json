@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jmarchn",
+			"SMP"
+		]
+	},
+	"userpageeditprotection-desc": "Permet restringir l'edició de pàgines d'usuari a l'usuari i als editors amb permisos",
+	"right-editalluserpages": "Editar totes les pàgines d'usuari"
+}

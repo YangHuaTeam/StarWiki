@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"userpageeditprotection-desc": "Omogućuje korisničkim stranicama uređivanje samo njihovim korisnicima i dopuštenim urednicima",
+	"right-editalluserpages": "Uređivanje svih korisničkih stranica",
+	"action-editalluserpages": "uređivanje ove korisničke stranice"
+}

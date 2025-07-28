@@ -1,0 +1,43 @@
+@import 'mediawiki.skin.variables.less';
+
+.mwe-upwiz-statementWidget {
+	border: @border-base;
+	border-radius: 2px;
+	padding: 0 4px;
+
+	&.mwe-upwiz-statementWidget-active {
+		border-color: @border-color-progressive;
+		outline: 1px solid transparent;
+		box-shadow: 0 0 0 1px @box-shadow-color-progressive--active;
+	}
+
+	.mwe-upwiz-statement-input {
+		display: inline-block;
+		width: 100%;
+
+		input {
+			height: 30px;
+		}
+	}
+
+	.oo-ui-textInputWidget .oo-ui-inputWidget-input {
+		border: 0;
+	}
+
+	.oo-ui-textInputWidget .oo-ui-inputWidget-input > input:first-child {
+		padding-left: 0;
+	}
+
+	.oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input {
+		box-shadow: none;
+	}
+
+	.oo-ui-tagItemWidget {
+		margin: 1px 4px 0 0;
+	}
+
+	.tags {
+		float: left;
+		display: inline;
+	}
+}

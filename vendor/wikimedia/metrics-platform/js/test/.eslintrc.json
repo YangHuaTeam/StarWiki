@@ -1,0 +1,12 @@
+{
+	"root": true,
+	"extends": [
+		"wikimedia/qunit",
+		"wikimedia/server"
+	],
+	"rules": {
+		"no-implicit-globals": "off",
+		"jsdoc/no-undefined-types": "off",
+		"jsdoc/valid-types": "off"
+	}
+}

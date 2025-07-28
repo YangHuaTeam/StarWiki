@@ -1,0 +1,139 @@
+@import 'mediawiki.skin.variables.less';
+@import 'mediawiki.mixins';
+
+@base-unit: 16px;
+
+#mwe-upwiz-stepdiv-thanks {
+	.mwe-upwiz-thanks-update-delay {
+		width: 100%;
+		text-align: center;
+		font-weight: @font-weight-bold;
+	}
+
+	.mwe-upwiz-thanks-message {
+		margin-bottom: 3em;
+		font-weight: @font-weight-bold;
+	}
+
+	.mwe-upwiz-thanks {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 4em;
+
+		.mwe-upwiz-thumbnail-side {
+			width: 200px;
+			margin-right: 35px;
+
+			.mwe-upwiz-thumbnail {
+				max-height: 200px;
+				margin-bottom: 0.5em;
+			}
+		}
+
+		.mwe-upwiz-data {
+			flex: 1;
+			min-width: 300px;
+		}
+	}
+
+	.mwe-upwiz-buttons {
+		padding-left: 235px;
+		text-align: start;
+
+		@media screen and ( max-width: @min-width-breakpoint-tablet ) {
+			padding-left: 0;
+		}
+	}
+
+	.mwe-upwiz-thanks + .mwe-upwiz-thanks {
+		margin-top: 2em;
+	}
+
+	.mwe-upwiz-mv-cta {
+		box-shadow: @box-shadow-drop-medium;
+		.flex-display();
+		align-items: center;
+		border-radius: (@base-unit / 2);
+		flex-direction: column;
+		justify-content: center;
+		margin-bottom: @base-unit;
+		padding: @base-unit * 1.5;
+		position: relative;
+
+		@media screen and ( min-width: @min-width-breakpoint-desktop-wide ) {
+			flex-direction: row;
+		}
+	}
+
+	.mwe-upwiz-mv-cta-dismiss {
+		margin: 0;
+		position: absolute;
+		right: 0;
+		top: (@base-unit / 2);
+
+		a {
+			background: transparent;
+			border: 0;
+		}
+	}
+
+	.mwe-upwiz-mv-cta-icon {
+		background-image: url( ../../images/cta-icon.svg );
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		flex-shrink: 0;
+		height: 8.5em;
+		width: 8.5em;
+	}
+
+	.mwe-upwiz-mv-cta-content {
+		padding-top: @base-unit;
+
+		@media screen and ( min-width: @min-width-breakpoint-desktop-wide ) {
+			padding-left: @base-unit * 2.5;
+			padding-top: 0;
+		}
+	}
+
+	.mwe-upwiz-mv-cta-heading {
+		margin-bottom: 0.5em;
+		padding-top: 0;
+	}
+
+	.mwe-upwiz-mv-cta-checkbox-section {
+		padding-bottom: 1em;
+
+		@media screen and ( min-width: @min-width-breakpoint-desktop-wide ) {
+			padding-bottom: 1.5em;
+			position: relative;
+		}
+	}
+
+	.mwe-upwiz-mv-cta-confirmation {
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+		animation: fadeIn 0.5s;
+		color: @color-success;
+		// The margin-left is the width of the checkbox and the padding-left
+		// matches the padding-left of the checkbox label, thus aligning this
+		// text with the checkbox label.
+		margin: 0 0 0 1.42857143em;
+		padding-left: 6px;
+
+		@media screen and ( min-width: @min-width-breakpoint-desktop-wide ) {
+			position: absolute;
+		}
+	}
+
+	.oo-ui-actionFieldLayout.oo-ui-fieldLayout-align-top {
+		max-width: 40em;
+	}
+}

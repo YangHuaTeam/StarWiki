@@ -1,0 +1,18 @@
+#upload-wizard {
+	margin-top: 18px;
+	max-width: 900px; /* wild guess */
+}
+
+.client-js .mwe-upwiz-unavailable {
+	display: none;
+}
+
+.client-nojs #upload-wizard {
+	display: none;
+}
+
+.mwe-first-spinner {
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+}

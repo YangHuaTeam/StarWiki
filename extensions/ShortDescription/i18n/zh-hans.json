@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bo77le",
+			"Diskdance",
+			"LittlePaw365",
+			"Tranve",
+			"Zhang8569"
+		]
+	},
+	"shortdescription": "简短描述",
+	"shortdescription-desc": "允许wiki给wikitext页面添加简短描述",
+	"shortdescription-info-label": "简短描述",
+	"shortdescription-category": "有简短描述的页面"
+}

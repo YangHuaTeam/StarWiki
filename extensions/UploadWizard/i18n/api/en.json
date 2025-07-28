@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"apihelp-flickrblacklist-summary": "Validate a Flickr URL by using the user ID (NSID) for blacklisting.",
+	"apihelp-flickrblacklist-extended-description": "When used with the <var>list</var> option, returns all blacklisted IDs.",
+	"apihelp-flickrblacklist-param-url": "The Flickr URL to be tested.",
+	"apihelp-flickrblacklist-param-list": "When set, the complete blacklist is returned. Cannot be used together with $1url.",
+	"apihelp-flickrblacklist-example-1": "Check a URL against the blacklist",
+	"apihelp-flickrblacklist-example-2": "Return the entire blacklist",
+	"apihelp-query+allcampaigns-summary": "Enumerate all UploadWizard campaigns.",
+	"apihelp-query+allcampaigns-param-enabledonly": "Only list campaigns that are enabled.",
+	"apihelp-query+allcampaigns-param-limit": "Number of campaigns to return.",
+	"apihelp-query+allcampaigns-example-1": "Enumerate enabled campaigns",
+	"apihelp-mediadetection-summary": "Return the likelihood that the stashed image represented by the supplied filekey is a logo",
+	"apihelp-mediadetection-param-filename": "Name of the file page",
+	"apihelp-mediadetection-param-filekey": "<var>filekey</var> returned from the <kbd>stash</kbd> API request",
+	"apihelp-mediadetection-example-filename": "Return the likelihood that the image represented by the supplied filename is a logo",
+	"apihelp-mediadetection-example-filekey": "Return the likelihood that the stashed image represented by the supplied filekey is a logo",
+	"apierror-mediadetection-no-valid-thumbnail": "No thumbnail exists for the image, so cannot send it to the classifier",
+	"apierror-mediadetection-invalid-mime-type": "Api endpoint not available for this type of file - allowed types are image/jpeg, image/gif, image/png, image/bmp"
+}

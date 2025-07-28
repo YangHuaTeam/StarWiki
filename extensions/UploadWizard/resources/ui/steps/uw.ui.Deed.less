@@ -1,0 +1,394 @@
+@import 'mediawiki.skin.variables.less';
+
+#mwe-upwiz-stepdiv-deeds:not( :empty ) {
+	padding: 2em 0;
+}
+
+#mwe-upwiz-deeds-intro {
+	margin-bottom: 1.5em;
+}
+
+.mwe-upwiz-deed-option-title {
+	&:first-child {
+		margin-top: 0.5em;
+	}
+
+	&:not( :first-child ) {
+		margin-top: 1.5em;
+	}
+}
+
+.mwe-upwiz-deed-forms .mwe-upwiz-deed-ownwork,
+.mwe-upwiz-deed-forms .mwe-upwiz-deed-thirdparty {
+	margin-top: 1.5em;
+	margin-left: 1.5em;
+	border-top: @border-width-base @border-style-base @border-color-base;
+	padding-top: 1.5em;
+}
+
+@media screen and ( max-width: @min-width-breakpoint-tablet ) {
+	.mwe-upwiz-deed-forms .mwe-upwiz-deed-ownwork,
+	.mwe-upwiz-deed-forms .mwe-upwiz-deed-thirdparty {
+		margin-left: 0;
+	}
+}
+
+// additional help text for radio button labels & titles
+.mwe-upwiz-label-extra {
+	display: block;
+	color: @color-subtle;
+}
+
+// don't show additional license explainer text for third party license selection
+.mwe-upwiz-deed-forms .mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-license-group .mwe-upwiz-label-explainer {
+	display: none;
+}
+
+.mwe-upwiz-deed-form-internal {
+	.oo-ui-fieldLayout-body {
+		max-width: none;
+	}
+
+	.oo-ui-fieldLayout.oo-ui-labelElement.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
+		max-width: none;
+	}
+
+	.mwe-upwiz-label-title {
+		font-size: 16px;
+		margin-top: 1em;
+
+		a {
+			color: @color-emphasized;
+			text-decoration: underline;
+		}
+	}
+
+	.mwe-upwiz-label-title,
+	label {
+		font-weight: @font-weight-normal;
+		padding-top: 0;
+	}
+
+	label {
+		margin-top: 0.3em;
+	}
+
+	.mwe-upwiz-details-fieldname-input {
+		margin-bottom: 2em;
+	}
+
+	.mwe-upwiz-details-fieldname-input .mwe-upwiz-details-fieldname-input {
+		margin-bottom: 0;
+	}
+
+	ol {
+		padding: 0;
+		margin-left: 1.5em;
+	}
+
+	.mwe-upwiz-thirdparty-checkbox {
+		margin-top: 0.5em;
+
+		.mwe-upwiz-details-fieldname {
+			font-size: 14px;
+		}
+	}
+
+	.mwe-upwiz-thirdparty-license {
+		.oo-ui-fieldLayout-body {
+			.oo-ui-fieldLayout-header {
+				padding-bottom: 0;
+			}
+		}
+	}
+
+	.mwe-upwiz-details-help {
+		color: @color-subtle;
+	}
+
+	// override default OOUI warning message style
+	.oo-ui-fieldLayout-messages {
+		margin: 0;
+
+		> .oo-ui-messageWidget {
+			margin-left: 0;
+			margin-right: 0;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+.mwe-upwiz-deed-license-group-body {
+	label:not( :first-of-type ) {
+		margin-top: 1em;
+	}
+
+	.mwe-upwiz-copyright-info > a {
+		font-size: 12px;
+	}
+}
+
+.mwe-upwiz-deed-subgroup {
+	margin: 1em 0;
+	padding: 1em 2em;
+	background-color: @background-color-neutral-subtle;
+	border-radius: 3px;
+
+	.mwe-upwiz-deed-title {
+		font-weight: @font-weight-bold;
+		color: @color-notice;
+	}
+
+	.mwe-upwiz-ai-prompt {
+		margin-top: 1.5em;
+	}
+}
+
+.mwe-upwiz-deed-origin-others-container {
+	.mwe-upwiz-deed-title {
+		margin-bottom: 1em;
+	}
+}
+
+@media screen and ( max-width: @min-width-breakpoint-tablet ) {
+	.mwe-upwiz-deed-subgroup {
+		padding: 1em 1em;
+	}
+}
+
+.mwe-upwiz-deed-license-group-container {
+	margin-top: 1em;
+
+	.mwe-upwiz-deed-license-group-head {
+		display: block;
+		margin-bottom: 0.5em;
+	}
+
+	// customizations for default "custom input" license groups
+	.mwe-upwiz-deed-license-group-mwe-upwiz-license-other-head + .mwe-upwiz-deed-license-group {
+		// get rid of default grey background
+		background-color: inherit;
+		margin-top: 0;
+		padding-top: 0;
+
+		// hide the radio button or checkbox
+		.oo-ui-radioInputWidget,
+		.oo-ui-checkboxInputWidget {
+			display: none;
+		}
+
+		// get rid of unnecessary padding between (now hidden) radio button and rest of the contents
+		.oo-ui-labelElement-label,
+		.mwe-upwiz-copyright-info {
+			padding-left: 0;
+		}
+	}
+
+	.mwe-upwiz-license-custom {
+		// side by side input field & button
+		display: flex;
+		max-width: 48em;
+		margin-bottom: 0.5em;
+
+		.oo-ui-inputWidget-input {
+			font-family: monospace;
+		}
+
+		.oo-ui-inputWidget-input,
+		.oo-ui-buttonElement-button .oo-ui-labelElement-label {
+			// input field & button are side by side and need to have the same height, but they're
+			// prone to influence from ooui or skins in different window widths, so let's just
+			// force them to be of the same size
+			line-height: 20px;
+			height: auto;
+		}
+	}
+
+	label:has( .mwe-upwiz-license-custom ),
+	.oo-ui-radioOptionWidget.oo-ui-labelElement > .oo-ui-labelElement-label:has( .mwe-upwiz-license-custom ) {
+		display: block;
+	}
+
+	fieldset.mwe-upwiz-deed-subgroup:has( .mwe-upwiz-license-custom ) {
+		padding-right: 0;
+	}
+}
+
+.mwe-upwiz-deed-origin,
+.mwe-upwiz-deed-purpose {
+	label:not( :first-of-type ),
+	.mwe-upwiz-deed-warning {
+		margin-top: 1em;
+	}
+
+	.mwe-upwiz-deed-warning.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-warning {
+		background-color: @background-color-warning-subtle;
+		border-color: @border-color-warning;
+	}
+}
+
+.mwe-upwiz-deed-origin .oo-ui-textInputWidget {
+	max-width: 100%;
+}
+
+/*
+ * license selection is rather generic to allow customization for campaigns, which makes
+ * it rather hard to add a specific "warning" class to the "no license known" license group,
+ * so we will target that one directly and mimic OO.ui.MessageWidget( { type: 'warning' } )
+ */
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-no-head + .mwe-upwiz-deed-license-group {
+	// show warning style instead of default grey background
+	background: ~'@background-color-warning-subtle url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 24px 16px / 20px';
+	padding: 16px 24px 16px 56px;
+	border: @border-width-base @border-style-base @border-color-warning;
+
+	// get rid of bold text & margin from the default license selection styles
+	.mwe-upwiz-deed-license-group-subhead {
+		font-weight: inherit;
+		color: @color-notice;
+		margin-bottom: 0;
+	}
+
+	// hide the default-always-on radio for license selection
+	.mwe-upwiz-deed-license-group-body {
+		display: none;
+	}
+}
+
+.mwe-upwiz-deed-warning,
+/*
+ * also apply custom warning message styles to warning in license selection
+ */
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-no-head + .mwe-upwiz-deed-license-group {
+	p {
+		/*
+		 * multi-paragraph messages will be wrapped in <p>, which add an unwanted
+		 * margin above & below; let's get rid of those in here
+		 */
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.mwe-upwiz-source-multiple {
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 1em;
+	border-bottom: @border-width-base @border-style-base @border-color-base;
+	margin-bottom: 1em;
+
+	label.oo-ui-radioOptionWidget {
+		margin-right: 3em;
+
+		// override OOUI style
+		padding: 0;
+	}
+}
+
+#mwe-upwiz-deeds-thumbnails {
+	background-color: @background-color-neutral-subtle;
+	border-radius: 2px;
+	margin: 1em 0;
+
+	.mwe-upwiz-thumbnail {
+		display: inline-block;
+		margin: 1em;
+		vertical-align: middle;
+	}
+}
+
+.mwe-upwiz-deeds-individual {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 2em 0;
+
+	&:not( :last-child ) {
+		border-bottom: @border-width-base @border-style-base @border-color-base;
+	}
+
+	.mwe-upwiz-deeds-individual-thumbnail {
+		width: 150px;
+		margin-right: 2em;
+	}
+
+	.mwe-upwiz-deeds-container {
+		flex: 1;
+		min-width: 300px;
+	}
+}
+
+.mwe-upwiz-patent-rights {
+	line-height: 1.5em;
+}
+
+.mwe-upwiz-patent-rights a + p {
+	margin-top: 2em;
+}
+
+.mwe-upwiz-patent-rights .oo-ui-panelLayout .oo-ui-panelLayout:not( :last-child ) {
+	box-shadow: 0 1em 1px -1em @background-color-notice-subtle;
+}
+
+.mwe-upwiz-patent-rights-filelist {
+	display: block;
+	text-align: center;
+	box-shadow: 0 0 1px 0 @background-color-notice-subtle;
+}
+
+.mwe-upwiz-patent-weapon-policy {
+	margin-top: 1em;
+	padding: 0 1em 0 ~'calc( 32px + 2em )';
+	border: @border-width-base @border-style-base @border-color-subtle;
+	white-space: pre-wrap;
+	/* @embed */
+	background: @background-color-interactive-subtle url( ../../images/no-weapons.svg ) no-repeat 1em 1em;
+	background-size: 32px 32px;
+}
+
+.mwe-upwiz-license-icon {
+	height: 18px;
+	margin-right: 5px;
+	padding: 9px;
+	width: 18px;
+}
+
+.mwe-upwiz-cc-public-domain-icon {
+	/* @embed */
+	background: url( ../../images/36px-Cc-public_domain_mark_white.svg.png ) no-repeat center center / contain;
+}
+
+.mwe-upwiz-cc-zero-icon {
+	/* @embed */
+	background: url( ../../images/36px-Cc-zero.svg.png ) no-repeat center center / contain;
+}
+
+.mwe-upwiz-cc-sa-icon {
+	/* @embed */
+	background: url( ../../images/36px-Share_Alike.svg.png ) no-repeat center center / contain;
+}
+
+.mwe-upwiz-cc-by-icon {
+	/* @embed */
+	background: url( ../../images/36px-Cc-by_new_white.svg.png ) no-repeat center center / contain;
+}
+
+.mwe-upwiz-deed.selected .mwe-upwiz-deed-name {
+	font-weight: @font-weight-bold;
+}
+
+.mwe-upwiz-source-thirdparty-explain {
+	font-size: 1.1em;
+	font-weight: @font-weight-bold;
+}
+
+.mwe-upwiz-thirdparty-license {
+	margin-top: 8px;
+}

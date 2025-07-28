@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Seipinne",
+			"Yupik"
+		]
+	},
+	"mwe-upwiz-step-file": "Vuorkkii",
+	"mwe-upwiz-step-deeds": "Kevttimvuoigâdvuođah",
+	"mwe-upwiz-step-details": "Valdâl",
+	"mwe-upwiz-published": "Almostittum!",
+	"mwe-upwiz-failed": "Ij luhostum.",
+	"mwe-upwiz-remove": "Siho",
+	"mwe-upwiz-upload": "Vuorkkii",
+	"mwe-upwiz-source-thirdparty-accept": "OK",
+	"mwe-upwiz-patent-dialog-title": "Patentvuoigâdvuođah",
+	"mwe-upwiz-patent-dialog-button-back": "Maassâd",
+	"mwe-upwiz-patent-dialog-button-next": "Čuávuvâš",
+	"mwe-upwiz-copied-metadata": "Kopijistum!",
+	"mwe-upwiz-copy-categories-label": "Luokah",
+	"mwe-upwiz-desc": "Kuvvim",
+	"mwe-upwiz-location-button": "Čääiti káártást",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Tubdâmettum tiätuvuárkkánommâ",
+	"mwe-upwiz-ok": "OK",
+	"mwe-upwiz-next": "Čuávuvâš",
+	"mwe-upwiz-next-file": "Juáđhi",
+	"mwe-upwiz-next-deeds": "Čuávuvâš",
+	"mwe-upwiz-previous": "Maassâd",
+	"mwe-upwiz-label-optional": "(valjimiävtulâš)",
+	"mwe-upwiz-dialog-title": "Váruttâs",
+	"mwe-upwiz-campaign-upload-button": "Vuorkkii!",
+	"mwe-upwiz-categories": "Luokka",
+	"mwe-upwiz-feedback-prompt": "Addel macâttâs",
+	"mwe-upwiz-errordialog-ok": "OK",
+	"mwe-upload-campaigns-pagination-next": "Čuávuvâš sijđo",
+	"mwe-upwiz-metadata-notice-header": "Persovntiäđuh"
+}

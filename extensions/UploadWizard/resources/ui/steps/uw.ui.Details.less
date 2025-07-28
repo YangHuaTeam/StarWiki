@@ -1,0 +1,166 @@
+@import 'mediawiki.skin.variables.less';
+
+.mwe-upwiz-info-file {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 2.5em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+
+	.mwe-upwiz-thumbnail {
+		text-align: left;
+		width: 230px;
+
+		a.mwe-upwiz-thumbnail-link img {
+			width: auto;
+			max-height: 230px;
+			// override !important from `.content a > img` on mobile
+			// stylelint-disable-next-line declaration-no-important
+			max-width: 230px !important;
+		}
+	}
+
+	.mwe-upwiz-data {
+		flex: 1;
+		min-width: 300px;
+	}
+
+	.oo-ui-fieldLayout-body {
+		margin-bottom: 12px;
+	}
+
+	// override default OOUI warning message style
+	.oo-ui-fieldLayout-messages {
+		margin: 0;
+
+		> .oo-ui-messageWidget {
+			margin-left: 0;
+			margin-right: 0;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+
+	.mwe-upwiz-fieldsetLayout {
+		.oo-ui-inline-help {
+			font-size: inherit;
+			margin-bottom: 24px;
+			color: @color-subtle;
+		}
+
+		&.oo-ui-fieldsetLayout > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
+			font-size: 1em;
+			margin-bottom: 0;
+		}
+	}
+
+	.mwe-upwiz-fieldLayout.oo-ui-fieldLayout.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
+		padding-bottom: 0;
+	}
+}
+
+.mwe-title {
+	font-family: sans-serif;
+	font-size: small;
+	width: 100%;
+}
+
+.mwe-upwiz-details-fieldname,
+.oo-ui-fieldsetLayout-header .oo-ui-labelElement-label {
+	font-weight: @font-weight-bold;
+}
+
+.mwe-upwiz-details-fieldname-input {
+	margin-bottom: 24px;
+}
+
+.mwe-upwiz-details-more-options,
+.mwe-upwiz-details-copy-metadata {
+	padding-left: 1.5em;
+	cursor: pointer;
+	outline: 0;
+	display: block;
+}
+
+.mwe-upwiz-copyMetadataWidget {
+	padding: 1em 0;
+
+	.mw-collapsible-content,
+	.mw-collapsible-content .oo-ui-buttonElement {
+		margin-top: 1em;
+	}
+
+	.mwe-upwiz-copy-metadata-subtitle {
+		padding: 1em 0;
+	}
+
+	.oo-ui-checkboxMultioptionWidget {
+		padding: 0.5em 0;
+	}
+
+	.oo-ui-buttonWidget,
+	.mwe-upwiz-copy-metadata-success {
+		padding: 1em 0 0 0;
+		vertical-align: middle;
+
+		.oo-ui-buttonElement-button label {
+			color: @color-base;
+		}
+	}
+}
+
+.mwe-upwiz-details-more-options.mw-collapsible-toggle,
+.mwe-upwiz-details-copy-metadata.mw-collapsible-toggle,
+.mwe-upwiz-deed-license-group-head.mw-collapsible-toggle {
+	/* Override jquery.makeCollapsible styles */
+	float: none;
+}
+
+.mwe-upwiz-fieldLayout-additional-info:has( .mw-collapsible ) {
+	&:not( :has( .mw-collapsed ) ) .oo-ui-icon-expand {
+		display: none;
+	}
+
+	&:has( .mw-collapsed ) .oo-ui-icon-collapse {
+		display: none;
+	}
+}
+
+.mwe-upwiz-description-same-as-caption-checkbox {
+	padding-bottom: 0;
+}
+
+.mwe-upwiz-details-help {
+	color: @color-subtle;
+}
+
+.mwe-upwiz-fieldLayout-additional-info {
+	margin-bottom: 3px;
+
+	.oo-ui-fieldLayout-header {
+		.mwe-upwiz-details-fieldname {
+			font-weight: @font-weight-normal;
+		}
+	}
+}
+
+.mwe-upwiz-fieldLayout-additional-info-clickable .oo-ui-fieldLayout-header label {
+	cursor: pointer;
+}
+
+// never show the remove button for the first caption input (even if it
+// does become removable after having unchecked "same as caption")
+// in order to reduce visual distraction, and to continue enticing
+// users (who are unaware that it is now in fact optional) to input
+// a caption, despite it no longer being actively enforced
+.mwe-upwiz-caption .mwe-upwiz-singleLanguageInputWidget:first-of-type&.mwe-upwiz-singleLanguageInputWidget-removable {
+	.mwe-upwiz-singleLanguageInputWidget-language {
+		width: 100%;
+	}
+
+	.mwe-upwiz-singleLanguageInputWidget-removeItem {
+		display: none;
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"include": [
+		"resources/**/*"
+	],
+	"compilerOptions": {
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"newLine": "lf",
+		"forceConsistentCasingInFileNames": true,
+		"pretty": true,
+		"target": "es5",
+		"module": "es2015",
+		"moduleResolution": "node",
+		"lib": [ "dom" ],
+		"allowJs": true,
+		"checkJs": true,
+		"noEmit": true
+	}
+}

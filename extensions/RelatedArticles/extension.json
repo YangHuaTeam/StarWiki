@@ -1,0 +1,143 @@
+{
+	"name": "RelatedArticles",
+	"version": "3.1.0",
+	"author": [
+		"[https://www.mediawiki.org/wiki/Reading/Web/Team Readers Web Team]",
+		"Roland Unger",
+		"Hans Musil",
+		"Matthias Mullie",
+		"Sam Smith"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:RelatedArticles",
+	"descriptionmsg": "relatedarticles-desc",
+	"license-name": "GPL-2.0-only",
+	"type": "betafeatures",
+	"requires": {
+		"MediaWiki": ">= 1.43"
+	},
+	"AutoloadNamespaces": {
+		"RelatedArticles\\": "includes/"
+	},
+	"ExtensionMessagesFiles": {
+		"RelatedArticlesMagic": "RelatedArticles.i18n.magic.php"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "main",
+		"OutputPageParserOutput": "main",
+		"BeforePageDisplay": "main",
+		"ResourceLoaderGetConfigVars": "main",
+		"SkinAfterContent": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "RelatedArticles\\Hooks",
+			"services": [
+				"ConfigFactory"
+			],
+			"optional_services": [
+				"DisambiguatorLookup"
+			]
+		}
+	},
+	"MessagesDirs": {
+		"RelatedArticles": [
+			"i18n"
+		]
+	},
+	"manifest_version": 2,
+	"ResourceModules": {
+		"ext.relatedArticles.styles": {
+			"styles": "resources/ext.relatedArticles.styles.less",
+			"skinStyles": {
+				"default": [
+					"skinStyles/ext.relatedArticles.styles/default.less"
+				],
+				"minerva": []
+			}
+		},
+		"ext.relatedArticles.readMore.bootstrap": {
+			"localBasePath": "resources/ext.relatedArticles.readMore.bootstrap/",
+			"remoteExtPath": "RelatedArticles",
+			"packageFiles": [
+				"index.js"
+			],
+			"dependencies": [
+				"mediawiki.user",
+				"mediawiki.api",
+				"mediawiki.Uri",
+				"mediawiki.util"
+			]
+		},
+		"ext.relatedArticles.readMore": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexStyleOnly": "true",
+			"codexComponents": [
+				"CdxCard"
+			],
+			"dependencies": [
+				"mediawiki.util"
+			],
+			"localBasePath": "resources/ext.relatedArticles.readMore/",
+			"packageFiles": [
+				"index.js",
+				"RelatedPagesGateway.js",
+				{
+					"name": "data.json",
+					"config": {
+						"searchUrl": "RelatedArticlesUseCirrusSearchApiUrl",
+						"useCirrusSearch": "RelatedArticlesUseCirrusSearch",
+						"onlyUseCirrusSearch": "RelatedArticlesOnlyUseCirrusSearch",
+						"descriptionSource": "RelatedArticlesDescriptionSource"
+					}
+				},
+				"RelatedArticles.js"
+			],
+			"styles": [
+				"styles.less"
+			],
+			"messages": [
+				"relatedarticles-read-more-heading"
+			]
+		}
+	},
+	"QUnitTestModule": {
+		"localBasePath": "",
+		"remoteExtPath": "RelatedArticles",
+		"packageFiles": [
+			"tests/qunit/index.js",
+			"resources/ext.relatedArticles.readMore/RelatedPagesGateway.js",
+			"tests/qunit/RelatedPagesGateway.test.js"
+		]
+	},
+	"config": {
+		"RelatedArticlesUseCirrusSearchApiUrl": {
+			"description": "During development use a different API for sourcing related articles.",
+			"value": "/w/api.php"
+		},
+		"RelatedArticlesCardLimit": {
+			"description": "Maximum number of articles that should be shown in RelatedArticles widget. This limit is derived from limits in TextExtracts and PageImages extensions. Number should be between 1 and 20.",
+			"value": 5
+		},
+		"RelatedArticlesUseCirrusSearch": {
+			"value": false
+		},
+		"RelatedArticlesOnlyUseCirrusSearch": {
+			"value": false
+		},
+		"RelatedArticlesDescriptionSource": {
+			"description": "Source to get the page description from (string, or false to not fetch the description). Possible values: wikidata, textextracts, pagedescription.",
+			"value": false
+		},
+		"RelatedArticlesFooterAllowedSkins": {
+			"description": "List of skin names (e.g. 'minerva') where related articles will be shown in the footer.",
+			"value": []
+		}
+	},
+	"ConfigRegistry": {
+		"RelatedArticles": "GlobalVarConfig::newInstance"
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "RelatedArticles"
+	}
+}
