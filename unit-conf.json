@@ -68,7 +68,7 @@
         "index": { "root": "/var/www/mediawiki", "script": "index.php" }
       },
       "options": {
-        "file": "unit-mediawiki.ini"
+        "file": "/var/www/mediawiki/unit-mediawiki.ini"
       },
       "processes": { "max": 2, "spare": 1, "idle_timeout": 50 }
     }
