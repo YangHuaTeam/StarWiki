@@ -68,7 +68,7 @@
         "index": { "root": "/var/www/mediawiki", "script": "index.php" }
       },
       "options": {
-        "file": "20-mw-seekstar.ini"
+        "file": "/var/www/mediawiki/20-mw-seekstar.ini"
       },
       "processes": { "max": 2, "spare": 1, "idle_timeout": 50 }
     }
