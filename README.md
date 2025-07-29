@@ -1,35 +1,11 @@
-# MediaWiki
+本仓库是基于 MediaWiki，为 [✨寻星知识库](https://www.seekstar.org) 定制的一个整合包。
 
-MediaWiki is a free and open-source wiki software package written in PHP. It
-serves as the platform for Wikipedia and the other Wikimedia projects, used
-by hundreds of millions of people each month. MediaWiki is localised in over
-350 languages and its reliability and robust feature set have earned it a large
-and vibrant community of third-party users and developers.
+把它开源出来是希望它对大家有用。使用该整合包，你可以轻松快速地部署一个 外观优美、使用S3存储桶保存文件 的 MediaWiki 实例。
 
-MediaWiki is:
+作为整合包，我们剥离出了特定于寻星的部分（图标、LocalSettings.php）,以便你基于本整合包打造你自己的wiki。
 
-* feature-rich and extensible, both on-wiki and with hundreds of extensions;
-* scalable and suitable for both small and large sites;
-* simple to install, working on most hardware/software combinations; and
-* available in your language.
+你可以使用本仓库获得一个合理的默认设置。
 
-For system requirements, installation, and upgrade details, see the files
-RELEASE-NOTES, INSTALL, and UPGRADE.
+## 版权
 
-* Ready to get started?
-  * https://www.mediawiki.org/wiki/Special:MyLanguage/Download
-* Setting up your local development environment?
-  * https://www.mediawiki.org/wiki/Local_development_quickstart
-* Looking for the technical manual?
-  * https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Contents
-* Seeking help from a person?
-  * https://www.mediawiki.org/wiki/Special:MyLanguage/Communication
-* Looking to file a bug report or a feature request?
-  * https://bugs.mediawiki.org/
-* Interested in helping out?
-  * https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute
-
-MediaWiki is the result of global collaboration and cooperation. The CREDITS
-file lists technical contributors to the project. The COPYING file explains
-MediaWiki's copyright and license (GNU General Public License, version 2 or
-later). Many thanks to the Wikimedia community for testing and suggestions.
+这个整合包只是整合了一些常用插件罢了，没有我们自己写的代码，所以

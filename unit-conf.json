@@ -51,7 +51,8 @@
           "/resources/assets/*",
           "/resources/lib/*",
           "/resources/src/*",
-          "/robots.txt"
+          "/robots.txt",
+          "/favicon.ico"
         ]
       },
       "action": {
