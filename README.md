@@ -111,14 +111,13 @@ chown -R unit:unit /var/www/mediawiki/sitemap /var/www/mediawiki/cache
 如果没有bundle.pem文件，可以使用`cat cert.pem ca.pem key.pem > bundle.pem`命令生成（如果没有ca.pem文件，则使用`cat cert.pem key.pem > bundle.pem`）。
 
 ```bash
-
 curl -X PUT --data-binary @/path/to/your/bundle.pem --unix-socket /var/run/control.unit.sock http://localhost/certificates/bundle
 ```
 这会创建一个名为 `bundle` 的证书，你可以在 NGINX Unit 的配置中引用它。
 
 #### 为 StarWiki 配置 nginx unit 
 
-```
+```bash
 curl -X PUT --data-binary @unit-conf.json --unix-socket /var/run/control.unit.sock http://localhost/config
 
 ```
@@ -128,9 +127,51 @@ curl -X PUT --data-binary @unit-conf.json --unix-socket /var/run/control.unit.so
 此时打开网站，会出现配置页面，按说明配置即可。
 配置完毕后会生成  /var/www/mediawiki/LocalSettings.php
 
+#### 应用整合包额外提供的插件、优化
+
+在 LocalSettings.php 添加：
+
+```php
+
+wfLoadSkin("Citizen");
+$wgCitizenThemeColor = "#ffae67"; // 皮肤主题色
+
+$wgDefaultSkin = "Citizen";
+$wgDefaultMobileSkin = "Citizen";
+
+
+$wgJobRunRate = 0; # 我们将使用专门的 mw-jobqueue.service 运行 job
+
+```
+
+#### 配置使用S3存储桶存放文件
+
+请前往插件页 [Extension:AWS](https://www.mediawiki.org/wiki/Extension:AWS) 查看插件使用说明。
+
+LocalSettings.php 配置示例：
+
+```php
+wfLoadExtension("AWS");
+$wgAWSBucketName = "seekstar";
+// $wgFileBackends["s3"]["use_path_style_endpoint"] = true;
+$wgAWSRegion = "cn-hongkong";
+$wgFileBackends["s3"]["endpoint"] =
+    "https://oss-cn-hongkong-internal.aliyuncs.com"; # 阿里云内网直连S3服务
+$wgAWSBucketDomain = "s3.seekstar.org";
+# $wgDebugLogGroups["FileOperation"] = "/var/www/mediawiki/S3.log";
+// Configure AWS credentials.
+// THIS IS NOT NEEDED if your EC2 instance has an IAM instance profile.
+$wgAWSCredentials = [
+    "key" => "xxxxx",
+    "secret" => "xxxxx",
+    "token" => false,
+]; 
+```
+
+
 #### 配置后台任务
 
-为了让 MediaWiki 的后台任务（如邮件通知、页面更新等）能够正常运行，你需要安装 `systemd` 服务单元。
+为了让 MediaWiki 的后台任务（如邮件通知、页面更新等）能够正常运行，你需要安装并启用一些 `systemd` 服务单元。
 ```bash
 ln -sf /var/www/mediawiki/systemd-units/mwjobrunner /usr/local/bin/mwjobrunner
 chmod +x /usr/local/bin/mwjobrunner
