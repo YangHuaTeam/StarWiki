@@ -14,7 +14,18 @@
 
 ### 准备 MediaWiki 依赖的运行环境
 
+
+
 #### 网络服务器 + php 环境
+
+安装 MediaWiki 需要的 php 拓展
+
+```bash
+apt install php-curl php-apcu php-gd php-imagick php-intl php-mbstring php-mysql php-xml php-igbinary
+
+```
+
+
 
 参考[官方教程](https://unit.nginx.org/installation/#debian) 安装跑php应用要用到的 nginx unit
 
@@ -40,12 +51,7 @@ apt install unit unit-php
 systemctl enable --now unit 
 ``` 
 
-安装 MediaWiki 需要的 php 拓展
 
-```bash
-apt install php-curl php-apcu php-gd php-imagick php-intl php-mbstring php-mysql php-xml php-igbinary
-
-``` 
 
 #### 数据库
 
