@@ -1,5 +1,5 @@
-cache/*
+cache
 LocalSettings.php
-sitemap/*
+sitemap
 resources/assets/seekstar-128.png
 favicon.ico
