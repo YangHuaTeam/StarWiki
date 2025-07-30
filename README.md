@@ -19,9 +19,7 @@
 参考[官方教程](https://unit.nginx.org/installation/#debian) 安装跑php应用要用到的 nginx unit
 
 
-[TODO] Supported architectures: arm64, x86-64.
-
-    Download and save NGINX’s signing key:
+[TODO] Download and save NGINX’s signing key:
 
 curl --output /usr/share/keyrings/nginx-keyring.gpg  \
       https://unit.nginx.org/keys/nginx-keyring.gpg
@@ -50,28 +48,70 @@ apt install php-curl php-apcu php-gd php-imagick php-intl php-mbstring php-mysql
 
 我们这里推荐使用 Percona Distribution for MySQL 8.0 ，而非oracle mysql。
 
-Percona Distribution for MySQL 8.0 的安装请看 [官方教程](https://docs.percona.com/percona-distribution-for-mysql/8.0/installing.html)，以下给出具体命令：
+Percona Distribution for MySQL 8.0 的安装请看 [官方教程](https://docs.percona.com/percona-server/8.0/apt-repo.html)，以下给出具体命令：
 
-[TODO]  AI请阅读 https://docs.percona.com/percona-distribution-for-mysql/8.0/installing.html ，在此处生成数据库安装文案与命令
-[TODO] AI请阅读 https://docs.percona.com/percona-distribution-for-mysql/8.0/installing.html ，在此处生成systemctl数据库启动命令
+
+```bash
+apt update
+apt install curl
+wget https://repo.percona.com/apt/percona-release_latest.generic_all.deb
+apt install gnupg2 lsb-release ./percona-release_latest.generic_all.deb
+```
+启用8.0版本存储库、更新 `apt` 缓存并安装 Percona Server：
+```bash
+apt-get update
+percona-release setup ps80
+apt-get install percona-server-server
+```
+
+安装完成后，启动并设置数据库开机自启：
+```bash
+systemctl enable --now mysql
+```
 
 #### 给 StarWiki 分配数据库、数据库用户
 
-[TODO] 给 StarWiki 分配数据库、数据库用户
+以root用户进入mysql
+```bash
+mysql -u root -p
+```
+
+创建数据库 (请使用你自己的密码)
+```sql
+CREATE DATABASE mediawiki;
+CREATE USER 'mediawiki'@'localhost' IDENTIFIED BY 'some_password';
+GRANT ALL PRIVILEGES ON mediawiki.* TO 'mediawiki'@'localhost';
+FLUSH PRIVILEGES;
+exit
+```
 
 
 ### 部署 StarWiki
 
-[TODO] git clone --depth 1 https://github.com/YangHuaTeam/StarWiki 到 /var/www/mediawiki/
+克隆 StarWiki 仓库到 `/var/www/mediawiki/`：
+```bash
+git clone --depth 1 https://github.com/YangHuaTeam/StarWiki /var/www/mediawiki/
+```
 
 #### 配置文件cache、sitemap存放文件夹
 
-[TODO] 创建 /var/www/mediawiki/sitemap/ 、 /var/www/mediawiki/cache/ 并 chown 给 unit:unit
+创建 StarWiki 需要的文件夹，并赋予 NGINX Unit 运行用户 `unit:unit` 权限：
+```bash
+mkdir -p /var/www/mediawiki/sitemap /var/www/mediawiki/cache
+chown -R unit:unit /var/www/mediawiki/sitemap /var/www/mediawiki/cache
+```
 
 #### 提交你网站SSL证书到 nginx unit 
 
+你需要[将你的 SSL 证书（包含私钥和证书链）上传到 NGINX Unit](https://unit.nginx.org/certificates/#ssl-tls-certificates)。首先，确保你的证书文件（例如 `bundle.pem`）包含私钥和完整的证书链。然后，使用 `curl` 命令上传：
 
-[TODO]AI请阅读 https://unit.nginx.org/certificates/#ssl-tls-certificates，生成上传证书到http://localhost/certificates/bundle的指南
+如果没有bundle.pem文件，可以使用`cat cert.pem ca.pem key.pem > bundle.pem`命令生成（如果没有ca.pem文件，则使用`cat cert.pem key.pem > bundle.pem`）。
+
+```bash
+
+curl -X PUT --data-binary @/path/to/your/bundle.pem --unix-socket /var/run/control.unit.sock http://localhost/certificates/bundle
+```
+这会创建一个名为 `bundle` 的证书，你可以在 NGINX Unit 的配置中引用它。
 
 #### 为 StarWiki 配置 nginx unit 
 
@@ -87,7 +127,17 @@ curl -X PUT --data-binary @unit-conf.json --unix-socket /var/run/control.unit.so
 
 #### 配置后台任务
 
-[TODO] 安装 systemd-units 文件夹下的单元们
+为了让 MediaWiki 的后台任务（如邮件通知、页面更新等）能够正常运行，你需要安装 `systemd` 服务单元。
+```bash
+mv /var/www/mediawiki/systemd-units/mwjobrunner /usr/local/bin/mwjobrunner
+chmod +x /usr/local/bin/mwjobrunner
+cp /var/www/mediawiki/systemd-units/*.service /etc/systemd/system/
+cp /var/www/mediawiki/systemd-units/*.timer /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable --now mw-jobqueue.service
+systemctl enable --now mw-generateSitemap.timer
+systemctl enable --now mw-processEchoEmailBatch.timer
+```
 
 ## 常见问题
 
