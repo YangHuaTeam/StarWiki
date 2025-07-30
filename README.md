@@ -98,7 +98,7 @@ git clone --depth 1 https://github.com/YangHuaTeam/StarWiki /var/www/mediawiki/
 
 #### 配置文件cache、sitemap存放文件夹
 
-创建 StarWiki 需要的文件夹，并赋予 NGINX Unit 运行用户 `unit:unit` 权限：
+创建 StarWiki 需要的文件夹，并将文件夹授权给 NGINX Unit：
 ```bash
 mkdir -p /var/www/mediawiki/sitemap /var/www/mediawiki/cache
 chown -R unit:unit /var/www/mediawiki/sitemap /var/www/mediawiki/cache
