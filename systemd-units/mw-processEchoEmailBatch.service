@@ -1,0 +1,10 @@
+[Unit]
+Description=Process Echo Email Batch for Wiki
+
+[Service]
+Type=oneshot
+User=unit
+ExecStart=/usr/bin/php /var/www/mediawiki/extensions/Echo/maintenance/processEchoEmailBatch.php
+
+[Install]
+WantedBy=multi-user.target

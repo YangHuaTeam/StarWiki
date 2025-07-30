@@ -1,0 +1,10 @@
+[Unit]
+Description=Generate Sitemap for Wiki
+
+[Service]
+Type=oneshot
+User=unit
+ExecStart=/usr/bin/php /var/www/mediawiki/maintenance/generateSitemap.php --memory-limit=50M --compress=no --urlpath=/sitemap/ --fspath=/var/www/mediawiki/sitemap/
+
+[Install]
+WantedBy=multi-user.target

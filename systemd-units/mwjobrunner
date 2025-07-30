@@ -1,0 +1,20 @@
+#!/bin/bash
+# https://www.mediawiki.org/wiki/Manual:Job_queue/zh#%E6%8C%81%E7%BB%AD%E6%9C%8D%E5%8A%A1
+RUN_JOBS="/var/www/mediawiki/maintenance/runJobs.php --maxtime=3600"
+echo 启动作业服务前延时……
+
+# 在服务器启动后等待10s，以便其他进程有时间启动
+sleep 10
+echo 开始运行。
+while true; do
+	# 无论队列中有多少作业类型都需要尽快运行
+	# 这些工作应该非常“简易”
+	php $RUN_JOBS --type="enotifNotify"
+	# 除此之外，限制每批作业的数量
+	# --wait参数将在此处暂停执行，直到添加新作业，
+	# 避免在没有任何事情可做的情况下运行循环
+	php $RUN_JOBS --wait --maxjobs=20
+	# 等待几秒钟，让CPU做其他事情，例如处理网络请求等
+	sleep 10
+done
+
