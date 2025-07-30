@@ -114,7 +114,7 @@ curl -X PUT --data-binary @/path/to/your/bundle.pem --unix-socket /var/run/contr
 
 这会创建一个名为 `bundle` 的证书，你可以在 NGINX Unit 的配置中引用它。
 
-> 💡 **Tip**  
+> 💡 **Tips**  
 > 如果没有bundle.pem文件，可以使用`cat cert.pem ca.pem key.pem > bundle.pem`命令生成（如果没有ca.pem文件，则使用`cat cert.pem key.pem > bundle.pem`）。
 
 
