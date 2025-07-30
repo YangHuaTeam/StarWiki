@@ -136,6 +136,9 @@ curl -X PUT --data-binary @unit-conf.json --unix-socket /var/run/control.unit.so
 在 LocalSettings.php 添加：
 
 ```php
+$wgMainCacheType = CACHE_ACCEL;
+$wgCacheDirectory = "/var/www/mediawiki/cache";
+$wgUseGzip = true;
 
 wfLoadSkin("Citizen");
 $wgCitizenThemeColor = "#ffae67"; // 皮肤主题色
@@ -143,7 +146,7 @@ $wgCitizenThemeColor = "#ffae67"; // 皮肤主题色
 $wgDefaultSkin = "Citizen";
 $wgDefaultMobileSkin = "Citizen";
 
-
+$wgEchoUseJobQueue = true; # 我觉得异步发邮件比同步要好
 $wgJobRunRate = 0; # 我们将使用专门的 mw-jobqueue.service 运行 job
 
 ```
