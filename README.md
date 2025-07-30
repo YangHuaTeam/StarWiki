@@ -132,10 +132,10 @@ curl -X PUT --data-binary @unit-conf.json --unix-socket /var/run/control.unit.so
 
 为了让 MediaWiki 的后台任务（如邮件通知、页面更新等）能够正常运行，你需要安装 `systemd` 服务单元。
 ```bash
-mv /var/www/mediawiki/systemd-units/mwjobrunner /usr/local/bin/mwjobrunner
+ln -sf /var/www/mediawiki/systemd-units/mwjobrunner /usr/local/bin/mwjobrunner
 chmod +x /usr/local/bin/mwjobrunner
-cp /var/www/mediawiki/systemd-units/*.service /etc/systemd/system/
-cp /var/www/mediawiki/systemd-units/*.timer /etc/systemd/system/
+ln -sf /var/www/mediawiki/systemd-units/*.service /etc/systemd/system/
+ln -sf /var/www/mediawiki/systemd-units/*.timer /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable --now mw-jobqueue.service
 systemctl enable --now mw-generateSitemap.timer
