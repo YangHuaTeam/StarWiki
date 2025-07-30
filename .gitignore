@@ -1,5 +1,7 @@
 cache
 LocalSettings.php
 sitemap
+
+# 寻星知识库特定的的图标
 resources/assets/seekstar-128.png
 favicon.ico
