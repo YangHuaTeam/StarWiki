@@ -108,12 +108,16 @@ chown -R unit:unit /var/www/mediawiki/sitemap /var/www/mediawiki/cache
 
 你需要[将你的 SSL 证书（包含私钥和证书链）上传到 NGINX Unit](https://unit.nginx.org/certificates/#ssl-tls-certificates)。首先，确保你的证书文件（例如 `bundle.pem`）包含私钥和完整的证书链。然后，使用 `curl` 命令上传：
 
-如果没有bundle.pem文件，可以使用`cat cert.pem ca.pem key.pem > bundle.pem`命令生成（如果没有ca.pem文件，则使用`cat cert.pem key.pem > bundle.pem`）。
-
 ```bash
 curl -X PUT --data-binary @/path/to/your/bundle.pem --unix-socket /var/run/control.unit.sock http://localhost/certificates/bundle
 ```
+
 这会创建一个名为 `bundle` 的证书，你可以在 NGINX Unit 的配置中引用它。
+
+> 💡 **Tip**  
+> 如果没有bundle.pem文件，可以使用`cat cert.pem ca.pem key.pem > bundle.pem`命令生成（如果没有ca.pem文件，则使用`cat cert.pem key.pem > bundle.pem`）。
+
+
 
 #### 为 StarWiki 配置 nginx unit 
 
@@ -183,8 +187,25 @@ systemctl enable --now mw-generateSitemap.timer
 systemctl enable --now mw-processEchoEmailBatch.timer
 ```
 
-## 常见问题
+## GitHub Markdown 使用技巧
 
-## 版权
+GitHub Markdown 提供了丰富的格式选项，以下是一些常用技巧：
 
-这个整合包只是整合了一些常用插件罢了，我们仅仅提供了 部署方案 + 文档，由我们贡献的那部分，我们使用 [Unlicense](https://unlicense.org/) 协议授权给你。
+### 基础格式
+```markdown
+# 一级标题
+## 二级标题
+### 三级标题
+
+*斜体*  
+**粗体**  
+~~删除线~~  
+`行内代码`
+
+[链接文字](https://example.com)
+![图片描述](图片地址)
+```
+
+### 列表
+```markdown
+- 无序列表
