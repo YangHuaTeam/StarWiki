@@ -122,6 +122,7 @@ curl -X PUT --data-binary @/path/to/your/bundle.pem --unix-socket /var/run/contr
 #### 为 StarWiki 配置 nginx unit 
 
 ```bash
+cd /var/www/mediawiki/
 curl -X PUT --data-binary @unit-conf.json --unix-socket /var/run/control.unit.sock http://localhost/config
 
 ```
