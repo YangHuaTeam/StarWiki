@@ -19,17 +19,20 @@
 参考[官方教程](https://unit.nginx.org/installation/#debian) 安装跑php应用要用到的 nginx unit
 
 
-[TODO] Download and save NGINX’s signing key:
+下载并保存 NGINX 的签名密钥：
 
+```bash
 curl --output /usr/share/keyrings/nginx-keyring.gpg  \
       https://unit.nginx.org/keys/nginx-keyring.gpg
+```
 
-This eliminates the “packages cannot be authenticated” warnings during installation.
+这样可以消除安装过程中出现的“packages cannot be authenticated”警告。
 
-To configure Unit’s repository, create the following file named /etc/apt/sources.list.d/unit.list:
-
+配置Unit的软件仓库，请创建名为/etc/apt/sources.list.d/unit.list的文件，内容如下：
+``` 
 deb [signed-by=/usr/share/keyrings/nginx-keyring.gpg] https://packages.nginx.org/unit/debian/ bookworm unit
 deb-src [signed-by=/usr/share/keyrings/nginx-keyring.gpg] https://packages.nginx.org/unit/debian/ bookworm unit
+```
 
 ``` bash
 apt update
