@@ -6,6 +6,10 @@
 
 </div>
 
+> ### StarWiki 已弃用
+>
+> [✨ 寻星知识库](https://www.seekstar.org)未来将会参照 https://www.mediawiki.org/wiki/Docker 使用 Canasta ，而非自行维护一个“额外的”整合包。
+> 如果有正在依赖本项目的用户，请让我知道，我会抽出时间写一份取消依赖本项目的文档。
 
 本项目是基于 MediaWiki，为 [✨ 寻星知识库](https://www.seekstar.org) 定制的一个 MediaWiki 整合包。
 
